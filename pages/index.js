@@ -14,7 +14,7 @@ export default function Home({ posts }) {
           
           <SectionSeparation>Artigos</SectionSeparation>
           {posts.map(({ slug, frontmatter }) => (
-            <Article onClick={() => Router.push(`/post/${slug}`)}>
+            <Article onClick={() => Router.push(`/post/${slug}`)} key={slug}>
               <PostImage src={frontmatter.socialImage} width="140" height="100" />
               <Title>{frontmatter.title}</Title>
               <span>{new Date(frontmatter.date).toLocaleDateString('pt-BR')}</span>

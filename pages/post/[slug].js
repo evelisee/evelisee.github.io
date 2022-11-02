@@ -15,7 +15,7 @@ export default function PostPage({ frontmatter, content }) {
         <p>Categorias: 
           
         {frontmatter.tags.map((categorie) => (
-          <Categorie>{categorie}</Categorie>
+          <Categorie key={categorie}>{categorie}</Categorie>
         ))}
         </p>
         <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />

@@ -12,7 +12,7 @@ margin: 0 auto;
 display: grid;
 gap: 1rem;
 
-    @media (max-width: 700px) {
+    @media (max-width: 1210px) {
         max-width: 90%
   }
 `

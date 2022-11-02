@@ -6,10 +6,12 @@ import styled from 'styled-components';
 import Router from 'next/router'
 import { BannerIntroducer } from '../components/BannerIntroducer/BannerIntroducer';
 import { ContainerGrid } from '../components/ContainerGird/ContainerGrid';
+import { HeadMetadata } from '../components/HeadMetadata/HeadMetadata';
 
 export default function Home({ posts }) {
     return (
       <>
+      <HeadMetadata title="Evelise Vazquez blog pessoal" description="Um blog sobre tecnologia, filosofia de vida, mercado de trabalho e café." />
         <BannerIntroducer />
           <ContainerGrid>
           <SectionSeparation>Artigos</SectionSeparation>
@@ -73,7 +75,6 @@ margin-bottom: 40px;
 @media (max-width: 700px) {
   flex-direction: column;
 }
-
 `
 
 const Article = styled.article`
@@ -103,8 +104,5 @@ const Article = styled.article`
   }
 `
 const Title = styled.h4`
-  color: #6246EA;
-`
-const Categories = styled.p`
   color: #6246EA;
 `

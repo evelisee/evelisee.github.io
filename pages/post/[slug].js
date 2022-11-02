@@ -5,10 +5,13 @@ import styled from 'styled-components';
 import {TextLink} from '../../components/TextLink/TextLink'
 import md from 'markdown-it';
 import { ContainerGrid } from '../../components/ContainerGird/ContainerGrid';
+import { HeadMetadata } from '../components/HeadMetadata/HeadMetadata';
+
 
 export default function PostPage({ frontmatter, content }) {
     return (
-      <BlogContent>        
+      <BlogContent>    
+        <HeadMetadata title={frontmatter.title} description={frontmatter.metaDesc} />
         <ContainerGrid>
           <ImagePost src={frontmatter.socialImage} alt={frontmatter.title} width="600" height="400"/>
           <ImageCredits>Foto por <TextLink href={frontmatter.photoLink} target="_blank">{frontmatter.photoAutor}</TextLink></ImageCredits>
@@ -61,6 +64,7 @@ const Introducion = styled.p`
 
 const BlogContent = styled.section`
   margin-top: 30px;
+  font-family: "PT Serif", serif;
 
   hr {
     width: 100%;
@@ -73,6 +77,7 @@ const BlogContent = styled.section`
 
 
 const ContainerPost = styled.div`
+  font-family: "PT Serif", serif; 
   a {
     text-decoration: none;
     color: #2B2C34;

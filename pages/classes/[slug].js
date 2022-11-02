@@ -57,6 +57,7 @@ const Introducion = styled.p`
 
 const BlogContent = styled.section`
   margin-top: 30px;
+  font-family: "PT Serif", serif;
 
   hr {
     width: 100%;

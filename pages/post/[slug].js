@@ -5,8 +5,7 @@ import styled from 'styled-components';
 import {TextLink} from '../../components/TextLink/TextLink'
 import md from 'markdown-it';
 import { ContainerGrid } from '../../components/ContainerGird/ContainerGrid';
-import { HeadMetadata } from '../components/HeadMetadata/HeadMetadata';
-
+import { HeadMetadata } from '../../components/HeadMetadata/HeadMetadata';
 
 export default function PostPage({ frontmatter, content }) {
     return (

@@ -1,5 +1,8 @@
 import Layout from '../components/layout';
 import '../styles/globals.css'
+import "@fontsource/plus-jakarta-sans"
+import "@fontsource/plus-jakarta-sans/600.css"
+import "@fontsource/plus-jakarta-sans/300.css"
 
 
 function MyApp({ Component, pageProps }) {

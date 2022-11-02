@@ -1,6 +1,6 @@
 ---
-title: 'Como garantimos a qualidade de código na Loft?'
-metaTitle: 'Como garantimos a qualidade de código na Loft?'
+title: 'Como garantíamos a qualidade de código na Loft?'
+metaTitle: 'Como garantíamos a qualidade de código na Loft?'
 metaDesc: 'Explicando um pouco como é feito o controle de qualidade dentro da Loft'
 socialImage: /images/blog/11-01-2022.jpg
 photoAutor: Broke Cagle

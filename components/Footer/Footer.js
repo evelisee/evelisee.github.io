@@ -2,46 +2,47 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { TextLink } from '../TextLink/TextLink';
+import { ContainerGrid } from '../ContainerGird/ContainerGrid';
 
 export const Footer = () => {
     return (
         <FooterContainer>
-            <section>
-                <div>
-                    <Logo>Evelise<span>.dev</span></Logo>
-                    <SocialSection>
-                    <LightText><TextLink href="https://www.figma.com/@dastin" target="_blank">Twitter</TextLink></LightText>
-                    <LightText><TextLink href="https://www.figma.com/@dastin" target="_blank">Instagram</TextLink></LightText>
-                    <LightText><TextLink href="https://www.figma.com/@dastin" target="_blank">Linkedin</TextLink></LightText>
-                    </SocialSection>
-                </div>
-                <div>
-                    <TitleFocus>LAYOUT</TitleFocus>
-                    <LightText>Blog design by <TextLink href="https://www.figma.com/@dastin" target="_blank">Dastin Darmawan</TextLink></LightText>
-                    <LightText>Girl illustration by <TextLink href="https://www.figma.com/@treetop" target="_blank">Treetop</TextLink></LightText>
-                </div>
-                <div>
-                    <TitleFocus>CONTATO</TitleFocus>
-                    <LightText>alo@evelise.dev</LightText>
-                </div>
-            </section>
+            <ContainerGrid>                
+                <section>
+                    <div>
+                        <Logo>Evelise<span>.dev</span></Logo>    
+                        <LightText>Blog design by <TextLink href="https://www.figma.com/@dastin" target="_blank">Dastin Darmawan</TextLink></LightText>                   
+                    </div>
+                    <div>
+                        <TitleFocus>SOCIAL</TitleFocus>
+                        <LightText><TextLink href="https://twitter.com/evelisevazquez" target="_blank">Twitter</TextLink></LightText>
+                        <LightText><TextLink href="https://www.instagram.com/evelisee/" target="_blank">Instagram</TextLink></LightText>
+                        <LightText><TextLink href="https://linkedin.com/in/evelisevazquez" target="_blank">Linkedin</TextLink></LightText>
+                    </div>
+                    
+                    <div>
+                        <TitleFocus>CONTATO</TitleFocus>
+                        <LightText>alo@evelise.dev</LightText>
+                    </div>
+                </section>
 
-            <CopyRight>
-                <p>© 2022 Evelise Vazquez</p>
-            </CopyRight>
+                <CopyRight>
+                    <p>© 2022 Evelise Vazquez</p> 
+                </CopyRight>
+            </ContainerGrid>
         </FooterContainer>
     )
 }
 
 const TitleFocus = styled.h3`
-    margin:0;
+    margin:5px 0px 10px;
     font-weight: bold;
     font-size: 15px;
 `
 
 const LightText = styled.p`
     font-weight: 300;
-    margin: 5px 0 0 00px;
+    margin: 5px 0 0 0px;
     font-size: 13px;
 `
 
@@ -49,12 +50,22 @@ const FooterContainer = styled.footer`
     background-color: #D2D6DB;
     margin-bottom: 0px;
 
-    & > section{
+    & section{
         display:flex;
-        padding: 7px 20px 10px;
+        padding-top: 12px;
         justify-content: space-between;
         align-items: baseline;
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
     }
+
+    & div:first-child{
+        align-self: center;
+    }  
 `
 
 const SocialSection = styled.section`
@@ -82,5 +93,4 @@ const CopyRight = styled.div`
     border-top: 1px solid #C0C0C0;
     font-size: 12px;
     font-weight: 300;
-    padding: 2px 20px;
 `

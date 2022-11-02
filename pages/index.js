@@ -5,24 +5,25 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Router from 'next/router'
 import { BannerIntroducer } from '../components/BannerIntroducer/BannerIntroducer';
+import { ContainerGrid } from '../components/ContainerGird/ContainerGrid';
 
 export default function Home({ posts }) {
     return (
       <>
         <BannerIntroducer />
-        <Container>
-          
+          <ContainerGrid>
           <SectionSeparation>Artigos</SectionSeparation>
-          {posts.map(({ slug, frontmatter }) => (
-            <Article onClick={() => Router.push(`/post/${slug}`)} key={slug}>
-              <PostImage src={frontmatter.socialImage} width="140" height="100" />
-              <Title>{frontmatter.title}</Title>
-              <span>{new Date(frontmatter.date).toLocaleDateString('pt-BR')}</span>
-              <p>{frontmatter.metaDesc}</p>
-            </Article>
-          ))}
-
-      </Container>
+            <Cards>
+              {posts.map(({ slug, frontmatter }) => (
+                <Article onClick={() => Router.push(`/post/${slug}`)} key={slug}>
+                  <PostImage src={frontmatter.socialImage} width="140" height="100" alt={frontmatter.title} />
+                  <Title>{frontmatter.title}</Title>
+                  <span>{new Date(frontmatter.date).toLocaleDateString('pt-BR')}</span>
+                  <p>{frontmatter.metaDesc}</p>
+                </Article>
+              ))}
+            </Cards>
+          </ContainerGrid>
       </>
     );
 }
@@ -64,6 +65,17 @@ const PostImage = styled(Image)`
   height: auto;
 `
 
+const Cards = styled.div`
+display: flex;
+gap: 1rem;
+margin-bottom: 40px;
+
+@media (max-width: 700px) {
+  flex-direction: column;
+}
+
+`
+
 const Article = styled.article`
   width: 300px;
   padding: 10px 20px;
@@ -71,6 +83,9 @@ const Article = styled.article`
   box-shadow:4px 6px 13px hsl(0deg 0% 84% / 30%);
   cursor: pointer;
   color: hsla(233, 9%, 19%, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
 
   a {

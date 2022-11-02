@@ -4,22 +4,29 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import {TextLink} from '../../components/TextLink/TextLink'
 import md from 'markdown-it';
+import { ContainerGrid } from '../../components/ContainerGird/ContainerGrid';
 
 export default function PostPage({ frontmatter, content }) {
     return (
-      <Container>
-        <ImagePost src={frontmatter.socialImage} width="600" height="400"/>
-        <ImageCredits>Foto por <TextLink href={frontmatter.photoLink} target="_blank">{frontmatter.photoAutor}</TextLink></ImageCredits>
-        <h1>{frontmatter.title}</h1>
-        <p><span>{new Date(frontmatter.date).toLocaleDateString('pt-BR')}</span></p>
-        <p>Categorias: 
+      <BlogContent>        
+        <ContainerGrid>
+          <ImagePost src={frontmatter.socialImage} alt={frontmatter.title} width="600" height="400"/>
+          <ImageCredits>Foto por <TextLink href={frontmatter.photoLink} target="_blank">{frontmatter.photoAutor}</TextLink></ImageCredits>
+            <Introducion>Data: <span>{new Date(frontmatter.date).toLocaleDateString('pt-BR')}</span> | Categorias: 
+              
+            {frontmatter.tags.map((categorie) => (
+              <Categorie key={categorie}>{categorie}</Categorie>
+            ))}
+            </Introducion>
           
-        {frontmatter.tags.map((categorie) => (
-          <Categorie key={categorie}>{categorie}</Categorie>
-        ))}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
-      </Container>
+          <hr/>
+      
+          <ContainerPost>
+            <h1>{frontmatter.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+          </ContainerPost>
+        </ContainerGrid>
+      </BlogContent>
     );
   }
 
@@ -48,11 +55,24 @@ export async function getStaticPaths() {
     };
 }
 
+const Introducion = styled.p`
+  margin:0;
+`
 
-const Container = styled.div`
-  max-width: 1024px;
-  margin: 30px auto;
+const BlogContent = styled.section`
+  margin-top: 30px;
 
+  hr {
+    width: 100%;
+    margin: 0;
+    background-color: #e0e0e0;
+    height: 1px;
+    border: 0;
+  }
+`
+
+
+const ContainerPost = styled.div`
   a {
     text-decoration: none;
     color: #2B2C34;
